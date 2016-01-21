@@ -32,15 +32,17 @@ def main():
             # testing if the team numbers have been uniformly distributed
             team_population = defaultdict(int)
             for pt in people_teams:
-                key = 'Team {0}'.format(pt[1])
+                key = pt[1]
                 team_population[key] +=1
             
             # writing output
             with open('output/teams.tsv', 'wb') as team_file:
                 writer = csv.writer(team_file, delimiter='\t', quoting=csv.QUOTE_ALL)
                 
+                writer.writerow(['Name', 'Team number'])
                 writer.writerows(people_teams)
                 writer.writerows([[], []])
+                writer.writerow(['Team', 'Number of members'])
                 writer.writerows(sorted(team_population.items()))
             
 
