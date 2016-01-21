@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+from collections import defaultdict
 import random
 import sys
 
@@ -9,8 +10,10 @@ def main():
             mods = mod_file.read().splitlines()
             atts = att_file.read().splitlines()
             
-            mod_teams = range(1, len(mods)+1)
-            att_teams = [t%5+1 for t in range(1, len(atts)+1)]
+            team_count = len(mods)
+            
+            mod_teams = range(1, team_count+1)
+            att_teams = [(t%team_count) + 1 for t in range(1, len(atts)+1)]
             
             random.shuffle(mod_teams)
             random.shuffle(att_teams)
@@ -20,12 +23,12 @@ def main():
             
             people_teams = zip(people, teams)
             
-            print people_teams
+            # tests
+            team_population = defaultdict(int)
+            for pt in people_teams:
+                team_population[pt[1]] +=1
+            print team_population
             
-            # for i in range(mods_no):
-            #     print '{0}\t{1}'.format(mods[i], mod_teams[i])
-            
-            # group_size = round(len(atts)/group_no)
 
 
 if __name__ == '__main__':
