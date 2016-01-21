@@ -40,6 +40,3 @@ att 39
 att 40
 att 41
 att 42
-att 43
-att 44
-att 45
