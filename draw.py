@@ -18,6 +18,10 @@ def main():
             people = mods + atts
             teams = mod_teams + att_teams
             
+            people_teams = zip(people, teams)
+            
+            print people_teams
+            
             # for i in range(mods_no):
             #     print '{0}\t{1}'.format(mods[i], mod_teams[i])
             
