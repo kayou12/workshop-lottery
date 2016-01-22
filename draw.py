@@ -36,10 +36,10 @@ def main():
                 team_population[key] +=1
             
             # writing output
-            with open('output/teams.tsv', 'wb') as team_file:
-                writer = csv.writer(team_file, delimiter='\t', quoting=csv.QUOTE_ALL)
+            with open('output/teams.csv', 'wb') as team_file:
+                writer = csv.writer(team_file, delimiter=';', quoting=csv.QUOTE_ALL)
                 
-                writer.writerow(['Name', 'Team number'])
+                writer.writerow(['Name', 'Team number', '', 'Name', 'Team number'])
                 writer.writerows(people_teams)
                 writer.writerows([[], []])
                 writer.writerow(['Team', 'Number of members'])
